@@ -54,6 +54,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  get user() {
+    return this.authForm.get('user');
+  }
+
+  get password() {
+    return this.authForm.get('password');
+  }
+
   onSubmit() {
     this.loading = true;
 
@@ -74,25 +82,15 @@ export class LoginComponent implements OnInit {
         this.messageService.add({ key: 'login-error', severity: 'error', summary: 'Erro no login', detail: 'Não foi possível logar.' });
       }
     })
-
   }
 
   closeLoginSuccess() {
-    this.router.navigate(['home'])
+    this.router.navigate(['home']);
   }
 
-  closeLoginError() {
-    console.log('sadsadsa')
+  closeLoginError() {  
+    //behavious here  
   }
-
-  get user() {
-    return this.authForm.get('user');
-  }
-
-  get password() {
-    return this.authForm.get('password');
-  }
-
 }
 
 

@@ -21,7 +21,10 @@ import { LoginService } from './shared/services/login.service';
 export class AppComponent {
   title = 'DGSys';
 
-  constructor(private auth: LoginService, private router: Router) { }
+  constructor(
+    private auth: LoginService, 
+    private router: Router
+    ) {}
 
   logOut(){
     this.auth.logOut();

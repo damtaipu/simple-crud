@@ -52,9 +52,7 @@ export class HomeComponent implements OnInit {
     private delProduct: DeleteProductUseCase,
     private updtProduct: UpdateProductUseCase,
     private messageService: MessageService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -125,7 +123,6 @@ export class HomeComponent implements OnInit {
           this.messageService.add({ key: 'reg-success', severity: 'success', summary: 'Sucesso', detail: 'Produto cadastrado.' });
           this.showListProducts();
         }
-
       },
       error: (e: any) => {
         this.loading = !this.loading;
