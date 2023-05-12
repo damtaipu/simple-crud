@@ -13,8 +13,7 @@ if (environment.production) {
 }
 
 bootstrapApplication(AppComponent, {
-  providers: [
-    
+  providers: [    
     provideRouter(ROUTES),
     importProvidersFrom(BrowserModule, BrowserAnimationsModule, HttpClientModule),
     dependencyInjection,
