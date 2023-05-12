@@ -16,9 +16,7 @@ export class AuthRepository extends AuthRepositorie {
     }
 
     registerUser(param: Login): Observable<ReturnDataModel>{
-
         return new Observable<ReturnDataModel>((observer) => {
-
             signInWithEmailAndPassword(this.auth, param.email, param.passWord).then((userCredencial) => {
                 let returnData = { code: 200, data: [{user: userCredencial.user}]};
                 observer.next(returnData);
