@@ -1,6 +1,6 @@
 # DGSys - Teste
 
-Este projeto é um CRUD simples desenvolvido em [Angular CLI](https://github.com/angular/angular-cli), utilizando standalone components, apenas para efeito de teste. 
+Este projeto é um CRUD simples desenvolvido em [Angular CLI](https://github.com/angular/angular-cli) utilizando a biblioteca CSS [Primeng](https://primeng.org/) e standalone components, apenas para efeito de teste. 
 
 Apesar de conter apenas funcionalidades simples, está estruturado seguindo padrões de boas práticas para arquitetura de software. Foi implementado utilizando injeção de dependência entre o núcleo dos serviços e a camada de controller, seguindo o modelo Clean Architure.
 
