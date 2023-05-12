@@ -1,0 +1,28 @@
+<div class="login">
+    <div>
+        <h3>Login</h3>
+    </div>
+    <div>
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">            
+            <div>
+                <label for="user">Usuário: </label>
+                <input pInputText type="text" formControlName="user" name="user" class="p-inputtext-sm">            
+                <small id="username-help" *ngIf="user.errors?.['required'] && (user.dirty || user.touched)">Informe o usuário.</small>
+            </div>
+            <div>
+                <label for="password">Password: </label>
+                <input pInputText type="password" formControlName="password" name="password" class="p-inputtext-sm">                
+                <small id="username-help" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">Informe a senha.</small>
+            </div>
+
+            <div>
+                <p-button type="submit" label="Entrar" [loading]="loading" styleClass="p-button-sm"></p-button>                
+            </div>
+        </form>
+    </div>
+</div>
+
+<p-toast key="login-success" (onClose)="closeLoginSuccess()"></p-toast>
+<p-toast key="login-error" (onClose)="closeLoginError()"></p-toast>
+
+

@@ -12,7 +12,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "dg",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -37,13 +39,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "3mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 }
               ],
               "fileReplacements": [

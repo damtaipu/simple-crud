@@ -1,0 +1,95 @@
+<div class="product-main">
+    <div>
+        <h3>Lista de Produtos</h3>
+    </div>
+
+    <div>
+        <p-table [value]="productData" [tableStyle]="{ 'min-width': '50rem' }">
+            <ng-template pTemplate="caption">
+                <div class="flex align-items-center justify-content-between">
+                    <p-button icon="pi pi-plus" label="Cadastrar produto" styleClass="p-button-sm" (click)="openModalProductRegister()"></p-button>
+                </div>
+            </ng-template>
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Código</th>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Ação</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{ product.ID }}</td>
+                    <td>{{ product.NAME }}</td>
+                    <td>{{ product.DESCRIPTION }}</td>
+                    <td>
+                        <p-button icon="pi pi-file-edit" styleClass="p-button-rounded p-button-success p-button-text" (click)="openModalUpdateRegister(product.CODE)"></p-button>                        
+                        <p-button icon="pi pi-times" styleClass="p-button-rounded p-button-danger p-button-text" (click)="deleteProduct($event, product.CODE)"></p-button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+
+<p-confirmPopup></p-confirmPopup>
+
+<!-- REGISTER -->
+<p-dialog header="Header" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Cadastro de produto</span>
+    </ng-template>
+
+    <div class="form-register">
+        <form [formGroup]="registerForm">
+            <div>
+                <label htmlFor="productName">Nome</label>
+                <input pInputText type="text" class="p-inputtext-sm" placeholder="Nome do produto" formControlName="productName" name="productName" />
+            </div>
+            <div>
+                <label htmlFor="productDescription">Descrição</label>                
+                <textarea rows="3" cols="30" pInputTextarea placeholder="Descrição" formControlName="productDescription" name="productDescription"></textarea>
+            </div>                       
+        </form>
+    </div>
+    
+    <ng-template pTemplate="footer">
+        <p-button type="submit" [loading]="loading" icon="pi pi-check" (click)="registerProduct()" [disabled]="registerForm.invalid" label="Salvar" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+
+<!-- UPDATE -->
+<p-dialog header="Header" [(visible)]="visibleUpdate" [modal]="true" [style]="{ width: '50vw' }">
+    <ng-template pTemplate="header">
+        <span class="text-xl font-bold">Editar de produto</span>
+    </ng-template>
+
+    <div class="form-register">
+        <form [formGroup]="registerForm">
+            <div>
+                <label htmlFor="productName">Nome</label>
+                <input pInputText type="text" class="p-inputtext-sm" placeholder="Nome do produto" formControlName="productName" name="productName" />
+                <input hidden pInputText type="text" class="p-inputtext-sm" placeholder="Nome do produto" formControlName="productId" name="productId" />
+            </div>
+            <div>
+                <label htmlFor="productDescription">Descrição</label>                
+                <textarea rows="3" cols="30" pInputTextarea placeholder="Descrição" formControlName="productDescription" name="productDescription"></textarea>
+            </div>                       
+        </form>
+    </div>
+    
+    <ng-template pTemplate="footer">
+        <p-button type="submit" [loading]="loading" icon="pi pi-check" (click)="updateProduct()" [disabled]="registerForm.invalid" label="Salvar" styleClass="p-button-text"></p-button>
+    </ng-template>
+</p-dialog>
+
+<p-toast key="reg-success"></p-toast>
+<p-toast key="reg-error"></p-toast>
+
+<p-toast key="update-success"></p-toast>
+
+<p-toast key="delete-warning"></p-toast>
+<p-toast key="delete-success"></p-toast>
+<p-toast key="delete-error"></p-toast>

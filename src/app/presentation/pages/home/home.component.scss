@@ -1,0 +1,21 @@
+.product-main{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.form-register{
+    width: 350px;
+
+    form{
+        div:first-child{
+            margin-bottom: 10px;
+        }
+        
+        div{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
